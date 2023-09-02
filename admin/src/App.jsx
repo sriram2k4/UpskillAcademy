@@ -3,6 +3,9 @@ import Home from './components/Home.jsx';
 import Signup from './components/Signup.jsx';
 import Signin from './components/Signin.jsx';
 import AllCourses from './components/AllCourses.jsx';
+import CreateCourse from './components/CreateCourse.jsx';
+import UpdateCourse from './components/UpdateCourse.jsx';
+
 import './App.css';
 
 function App() {
@@ -14,6 +17,8 @@ function App() {
         <Route path={"/signup"} element={ <Signup /> } />
         <Route path={"/signin"} element={ <Signin /> } />
         <Route path={"/courses"} element={ <AllCourses /> } />
+        <Route path={"/createCourse"} element={ <CreateCourse /> } />
+        <Route path={"/updateCourse"} element={ <UpdateCourse /> } />
       </Routes>
     </Router>
   )
