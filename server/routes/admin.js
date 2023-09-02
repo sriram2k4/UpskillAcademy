@@ -58,17 +58,17 @@ router.post('/login', async (req, res) => {
 router.post('/courses', authenticateJwt, async (req, res) => {
 	const course = req.body;
 	await Course.create(course);
-	res.json({ message : "Course created successfully", courseId: course.id});
+	res.json({ message : "CourseCard created successfully", courseId: course.id});
 })
 
-// Update Course
+// Update CourseCard
 router.put('/courses/:courseId', authenticateJwt, async (req, res) => {
 	const id = req.params.courseId;
 	const course = await Course.findByIdAndUpdate(id, req.body, { new : true });
 	if(course){
-		res.json({ message : "Course updated successfully" });
+		res.json({ message : "CourseCard updated successfully" });
 	}else{
-		res.status(404).json({ message : "Course not found" });
+		res.status(404).json({ message : "CourseCard not found" });
 	}
 	console.log("course");
 })
