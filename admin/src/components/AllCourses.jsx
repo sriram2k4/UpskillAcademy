@@ -27,7 +27,7 @@ const AllCourses = () => {
 						}
 					}}
 				>
-					Available Courses
+					Your Courses
 				</Typography>
 			</Grid>
 
