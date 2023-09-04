@@ -7,29 +7,28 @@ import Grid from "@mui/material/Grid";
 import Appbar from "./Appbar.jsx";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import {useSetRecoilState} from "recoil";
+import {adminState} from "../store/atoms/admin.js";
 
 
 const Signup = () => {
 	const navigate = useNavigate();
-
+	const setAdmin = useSetRecoilState(adminState);
 	const [ username , setUsername] = useState("");
 	const [ password , setPassword] = useState("");
 
 	const handleSignInClick = async () => {
-
 		const headers = {
 			'Content-Type': 'application/json',
 			'username' : username,
 			'password' : password
-		}
-
+		};
 		const response = await axios.post(`http://localhost:3000/admin/login`, {}, {
 			headers : headers
 		});
-
+		setAdmin({ isLoading: false, adminUsername: username });
 		let data = response.data;
 		localStorage.setItem("token", data.token);
-
 		navigate("/courses");
 	}
 

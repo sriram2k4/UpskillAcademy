@@ -9,21 +9,25 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import {useState} from "react";
 
+import {useSetRecoilState} from "recoil";
+import {adminState} from "../store/atoms/admin.js";
+
 const Signup = (key, value) => {
+	const setAdmin = useSetRecoilState(adminState);
 	const navigate = useNavigate();
 
 	const [ username , setUsername] = useState("");
 	const [ password , setPassword] = useState("");
 
 	const handleSignupClick =  async () => {  /// RESUME AT HERE, MAKING STATE MANAGEMENT FOR FORMS
-		navigate("/courses");
 		const response = await axios.post(`http://localhost:3000/admin/signup`, {
 			username: username,
 			password: password
 		});
 		let data = response.data;
+		setAdmin({ isLoading: false, adminUsername: username });
 		localStorage.setItem("token", data.token);
-		// Set User state username to username
+		navigate("/");
 	}
 
 	return (
