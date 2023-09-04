@@ -5,7 +5,6 @@ export const adminState = atom({
 	default: {
 		isLoading: true,
 		adminUsername: null
-		isLogine
 	},
 });
 
