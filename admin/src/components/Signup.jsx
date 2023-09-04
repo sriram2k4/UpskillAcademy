@@ -5,9 +5,27 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Appbar from "./Appbar.jsx";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import {useState} from "react";
 
+const Signup = (key, value) => {
+	const navigate = useNavigate();
 
-const Signup = () => {
+	const [ username , setUsername] = useState("");
+	const [ password , setPassword] = useState("");
+
+	const handleSignupClick =  async () => {  /// RESUME AT HERE, MAKING STATE MANAGEMENT FOR FORMS
+		navigate("/courses");
+		const response = await axios.post(`http://localhost:3000/admin/signup`, {
+			username: username,
+			password: password
+		});
+		let data = response.data;
+		localStorage.setItem("token", data.token);
+		// Set User state username to username
+	}
+
 	return (
 		<>
 			<Appbar />
@@ -55,6 +73,9 @@ const Signup = () => {
 						sx={{
 							paddingBottom : 2,
 						}}
+						onChange={(e) => {
+							setUsername(e.target.value);
+						}}
 					/>
 
 					<TextField
@@ -65,10 +86,14 @@ const Signup = () => {
 						sx={{
 							paddingBottom : 2
 						}}
+						onChange={(e) => {
+							setPassword(e.target.value);
+						}}
 					/>
 
 					<Button
 						variant="contained"
+						onClick = { handleSignupClick }
 					>
 						Sign up
 					</Button>
@@ -92,6 +117,9 @@ const Signup = () => {
 						// size={"small"}
 						sx={{
 							marginTop : 1,
+						}}
+						onClick={() => {
+							navigate('/signin')
 						}}
 					>
 						Sign In

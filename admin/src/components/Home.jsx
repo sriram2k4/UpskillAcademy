@@ -3,10 +3,10 @@ import Appbar from './Appbar.jsx';
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-
-
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -37,11 +37,16 @@ const Home = () => {
 
 						<Button
 							variant={"contained"}
+
 							sx={{
 								marginTop: 2,
 							}}
 							size={"large"}
+							onClick={() => {
+								navigate('/signup')
+							}}
 						>Sign Up</Button>
+
 					</div>
 				</Grid>
 				<Grid
