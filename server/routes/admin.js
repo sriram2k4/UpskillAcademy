@@ -76,7 +76,7 @@ router.put('/courses/:courseId', authenticateJwt, async (req, res) => {
 // Get all courses
 router.get('/courses', authenticateJwt, async (req, res) => {
 	const courses = await Course.find({});
-	res.json(courses);
+	res.json({courses});
 })
 
 // Get course by ID
