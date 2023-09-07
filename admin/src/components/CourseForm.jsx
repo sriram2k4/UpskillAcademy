@@ -11,13 +11,19 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import {useRecoilValue} from "recoil";
+import {adminUsername} from "../store/selectors/adminUsername.js";
+import {useNavigate} from "react-router-dom";
 
 const CourseForm = () => {
+	const navigate = useNavigate();
+	const admin = useRecoilValue( adminUsername );
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [imageUrl, setImageUrl] = useState("");
 	const [amount, setAmount] = useState(0);
 	const [published, setPublished] = useState(true);
+	const [publishedBy, setPublishedBy] = useState(admin);
 
 
 	const handleCreateCourse = async () => {
@@ -26,13 +32,15 @@ const CourseForm = () => {
 		console.log(imageUrl);
 		console.log(amount);
 		console.log(published);
+		console.log(publishedBy);
 
 		const response = await axios.post(`http://localhost:3000/admin/courses`, {
 			title : title,
 			description : description,
 			imageLink : imageUrl,
 			price : amount,
-			published : published
+			published : published,
+			publishedBy : admin
 		},{
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token"),
@@ -43,6 +51,7 @@ const CourseForm = () => {
 
 		console.log(data);
 		alert("Course Added");
+		navigate("/courses");
 	}
 
 	return (

@@ -18,7 +18,6 @@ const AllCourses = () => {
 
 		let data = response.data.courses;
 		setCourses(data);
-
 	}
 
 	useEffect(() => {

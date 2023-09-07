@@ -14,11 +14,8 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from "@mui/material/Button";
 import axios from "axios";
-import {useRecoilValue} from "recoil";
-import {adminUsername} from "../store/selectors/adminUsername.js";
 
 const CreateCourse = () => {
-	const admin = useRecoilValue( adminUsername );
 	const userName = localStorage.getItem("username");
 	return (
 		<>

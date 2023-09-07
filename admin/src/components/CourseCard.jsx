@@ -13,6 +13,20 @@ import axios from "axios";
 const CourseCard = (props) => {
 	const navigate = useNavigate();
 
+	const handleDelete = async () => {
+		const response = await axios.delete(`http://localhost:3000/admin/courses/${props.course._id}`, {
+			headers : {
+				"Authorization" : "Bearer " + localStorage.getItem("token"),
+			}
+		});
+
+		if(response.data) {
+			alert("Deleted The Course");
+			navigate("/courses");
+			location.reload();
+		}
+	}
+
 	return (
 		<Card
 			style={{
@@ -68,8 +82,19 @@ const CourseCard = (props) => {
 					variant={"contained"}
 					size="small"
 					color={"error"}
+					onClick={ handleDelete }
 				>Delete</Button>
 			</CardActions>
+
+			<Typography
+				ariant="body2"
+				color="text.secondary"
+				sx={{
+					textAlign : "center"
+				}}
+			>
+				Publisher : {props.course.publishedBy}
+			</Typography>
 
 		</Card>
 	);

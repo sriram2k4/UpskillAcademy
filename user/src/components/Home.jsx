@@ -3,10 +3,11 @@ import Appbar from './Appbar.jsx';
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
-
-
+	const navigate = useNavigate();
+	const username = localStorage.getItem("username");
 
 	return (
 		<>
@@ -35,13 +36,28 @@ const Home = () => {
 							variant={"h3"}
 						>User Dashboard</Typography>
 
-						<Button
+						{(username === "null") && <Button
 							variant={"contained"}
 							sx={{
 								marginTop: 2,
 							}}
 							size={"large"}
-						>Sign Up</Button>
+							onClick={() => {
+								navigate("/signup")
+							}}
+						>Sign Up</Button>}
+
+						{(username !== "null") && <Button
+							variant={"contained"}
+							sx={{
+								marginTop: 2,
+							}}
+							size={"large"}
+							onClick={() => {
+								navigate("/courses")
+							}}
+						>View Courses</Button>}
+
 					</div>
 				</Grid>
 				<Grid
