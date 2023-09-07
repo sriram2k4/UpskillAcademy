@@ -9,7 +9,7 @@ import {adminUsername} from "../store/selectors/adminUsername.js";
 
 const Home = () => {
 	const navigate = useNavigate();
-	const admin = useRecoilValue( adminUsername );
+	const username = localStorage.getItem("username");
 
 	return (
 	<>
@@ -38,7 +38,7 @@ const Home = () => {
 							variant={"h3"}
 						>Admin Dashboard</Typography>
 
-						{ !admin && <Button
+						{ (username === "null") && <Button
 							variant={"contained"}
 
 							sx={{
@@ -50,7 +50,7 @@ const Home = () => {
 							}}
 						>Sign Up</Button>}
 
-						{admin && <Button
+						{ (username !== "null") && <Button
 							variant={"contained"}
 
 							sx={{

@@ -29,6 +29,7 @@ const Signup = () => {
 		setAdmin({ isLoading: false, adminUsername: username });
 		let data = response.data;
 		localStorage.setItem("token", data.token);
+		localStorage.setItem("username", username);
 		navigate("/courses");
 	}
 

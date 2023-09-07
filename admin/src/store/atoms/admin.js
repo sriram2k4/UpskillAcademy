@@ -4,7 +4,6 @@ export const adminState = atom({
 	key: 'adminState',
 	default: {
 		isLoading: true,
-		adminUsername: null
+		adminUsername: localStorage.getItem('username'),
 	},
 });
-
