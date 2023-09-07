@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Appbar from "./Appbar.jsx";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -11,8 +11,40 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Button from "@mui/material/Button";
+import axios from "axios";
+import {useRecoilValue} from "recoil";
+import {adminUsername} from "../store/selectors/adminUsername.js";
 
 const CreateCourse = () => {
+	const admin = useRecoilValue( adminUsername );
+
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
+	const [imageUrl, setImageUrl] = useState("");
+	const [amount, setAmount] = useState("");
+	const [published, setPublished] = useState("yes");
+
+
+	const handleCreateCourse = async () => {
+		console.log(title);
+		console.log(description);
+		console.log(imageUrl);
+		console.log(amount);
+		console.log(published);
+
+		const response = await axios.post(`http://localhost:3000/admin/courses`, {
+			title, description, imageUrl, amount, published
+		},{
+			headers : {
+				"Authorization" : "Bearer " + localStorage.getItem("token"),
+			}
+		});
+
+		let data = response.data;
+
+		console.log(data);
+		alert("Course Added");
+	}
 
 	return (
 		<>
@@ -66,6 +98,9 @@ const CreateCourse = () => {
 						sx={{
 							paddingBottom : 2,
 						}}
+						onChange={(e) => {
+							setTitle(e.target.value);
+						}}
 					/>
 
 					<TextField
@@ -77,16 +112,8 @@ const CreateCourse = () => {
 						sx={{
 							paddingBottom : 2
 						}}
-					/>
-
-					<TextField
-						id="outlined-basic"
-						label="Image URL"
-						variant="outlined"
-						fullWidth
-						size={"small"}
-						sx={{
-							paddingBottom : 2
+						onChange={(e) => {
+							setDescription(e.target.value);
 						}}
 					/>
 
@@ -98,6 +125,9 @@ const CreateCourse = () => {
 						size={"small"}
 						sx={{
 							paddingBottom : 2
+						}}
+						onChange={(e) => {
+							setImageUrl(e.target.value);
 						}}
 					/>
 
@@ -113,6 +143,9 @@ const CreateCourse = () => {
 							id="outlined-adornment-amount"
 							startAdornment={<InputAdornment position="start">$</InputAdornment>}
 							label="Amount"
+							onChange={(e) => {
+								setAmount(e.target.value);
+							}}
 						/>
 					</FormControl>
 
@@ -128,6 +161,9 @@ const CreateCourse = () => {
 							defaultValue={"yes"}
 							displayEmpty
 							label="Is Published"
+							onChange={(e) => {
+								setPublished(e.target.value);
+							}}
 						>
 							<MenuItem value={"yes"}>Yes</MenuItem>
 							<MenuItem value={"no"}>No</MenuItem>
@@ -140,6 +176,7 @@ const CreateCourse = () => {
 						sx={{
 							marginTop : 1,
 						}}
+						onClick={handleCreateCourse}
 					>
 						Create Course
 					</Button>
@@ -149,6 +186,8 @@ const CreateCourse = () => {
 
 		</>
 	);
+
+
 };
 
 export default CreateCourse;

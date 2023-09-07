@@ -16,7 +16,7 @@ import { adminState } from '../store/atoms/admin.js';
 
 const Appbar = () => {
 	const admin = useRecoilValue( adminUsername );
-	console.log(admin); // Why so many refreshes
+	// console.log(admin); // Why so many refreshes
 	const navigate = useNavigate();
 	const setAdmin = useSetRecoilState(adminState);
 

@@ -4,12 +4,15 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import {useRecoilValue} from "recoil";
+import {adminUsername} from "../store/selectors/adminUsername.js";
 
 const Home = () => {
 	const navigate = useNavigate();
+	const admin = useRecoilValue( adminUsername );
 
 	return (
-		<>
+	<>
 			<Appbar />
 			<Grid
 				container
@@ -35,7 +38,7 @@ const Home = () => {
 							variant={"h3"}
 						>Admin Dashboard</Typography>
 
-						<Button
+						{ !admin && <Button
 							variant={"contained"}
 
 							sx={{
@@ -45,7 +48,19 @@ const Home = () => {
 							onClick={() => {
 								navigate('/signup')
 							}}
-						>Sign Up</Button>
+						>Sign Up</Button>}
+
+						{admin && <Button
+							variant={"contained"}
+
+							sx={{
+								marginTop: 2,
+							}}
+							size={"large"}
+							onClick={() => {
+								navigate('/courses')
+							}}
+						>Courses</Button>}
 
 					</div>
 				</Grid>
