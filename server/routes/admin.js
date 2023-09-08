@@ -15,6 +15,7 @@ const { authenticateJwt } = require('../middleware/auth');
 - PUT /courses/:courseId - update course by id [DONE]
 - GET /courses - get all course [DONE]
 - GET /courses/:courseId - get single course by id [DONE]
+- DELETE /courses/:courseID - Delete course by ID [DONE]
  */
 
 router.get('/me',authenticateJwt, async (req, res) => {
@@ -76,7 +77,7 @@ router.put('/courses/:courseId', authenticateJwt, async (req, res) => {
 // Get all courses
 router.get('/courses', authenticateJwt, async (req, res) => {
 	const courses = await Course.find({});
-	res.json({courses});
+	res.json({ courses });
 })
 
 // Get course by ID
@@ -90,8 +91,8 @@ router.get('/courses/:courseId', authenticateJwt, async (req, res) => {
 // Get course by publisherUsername
 router.get('/courses/publisher/:publisherUsername', authenticateJwt, async (req, res) => {
 	const publishedBy = req.params.publisherUsername;
-	const course = await Course.find({ publishedBy });
-	res.json(course);
+	const courses = await Course.find({ publishedBy });
+	res.json({ courses });
 })
 
 // // Delete course by ID

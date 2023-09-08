@@ -24,7 +24,6 @@ const UpdateCourse = () => {
 	const [published, setPublished] = useState(true);
 	const [isLoading, setIsLoading] = useState(true);
 
-
 	const init = async () => {
 		const response = await axios.get(`http://localhost:3000/admin/courses/${courseId}`, {
 			headers : {

@@ -37,10 +37,18 @@ router.post('/login', async (req, res) => {
 	}
 })
 
+// get course by Id
+router.get('/courses/:courseId', authenticateJwt, async (req, res) => {
+	const id = req.params.courseId;
+	const courses = await Course.findById(id);
+	res.json({ courses });
+})
+
+
 // get all courses
 router.get('/courses', authenticateJwt, async (req, res) => {
 	const courses = await Course.find({ published : true });
-	res.json(courses);
+	res.json({ courses });
 })
 
 // purchase a course
@@ -50,9 +58,13 @@ router.post('/courses/:courseId', authenticateJwt, async (req, res) => {
 
 	if(course){
 		const user = await User.findOne({ username : req.user.username});
-		user.purchasedCourses.push(course);
-		await user.save();
-		res.json({ message : "Course purchased successfully"});
+		if(user){
+			user.purchasedCourses.push(course);
+			await user.save();
+			res.json({ message : "Course purchased successfully"});
+		}else{
+			res.status(404).json({ message : "User not found" });
+		}
 	}else{
 		res.status(404).json({ message : "Course not found" });
 	}

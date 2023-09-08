@@ -1,13 +1,38 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Card from '@mui/material/Card';
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Appbar from "./Appbar.jsx";
+import {useNavigate} from "react-router-dom";
+import {useSetRecoilState} from "recoil";
+import {userState} from "../store/atoms/user.js";
+import axios from "axios";
 
 
 const Signup = () => {
+	const navigate = useNavigate();
+	const setUser = useSetRecoilState(userState);
+	const [ username , setUsername] = useState("");
+	const [ password , setPassword] = useState("");
+
+	const handleSignInClick = async () => {
+		const headers = {
+			'Content-Type': 'application/json',
+			'username' : username,
+			'password' : password
+		};
+		const response = await axios.post(`http://localhost:3000/admin/login`, {}, {
+			headers : headers
+		});
+		setUser({ isLoading: false, userName: username });
+		let data = response.data;
+		localStorage.setItem("token", data.token);
+		localStorage.setItem("username", username);
+		navigate("/courses");
+	}
+
 	return (
 		<>
 			<Appbar />
@@ -55,6 +80,9 @@ const Signup = () => {
 						sx={{
 							paddingBottom : 2,
 						}}
+						onChange={(e) => {
+							setUsername(e.target.value);
+						}}
 					/>
 
 					<TextField
@@ -65,10 +93,14 @@ const Signup = () => {
 						sx={{
 							paddingBottom : 2
 						}}
+						onChange={(e) => {
+							setPassword(e.target.value);
+						}}
 					/>
 
 					<Button
 						variant="contained"
+						onClick={ handleSignInClick }
 					>
 						Sign In
 					</Button>

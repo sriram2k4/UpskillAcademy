@@ -4,19 +4,22 @@ import CourseCard from "./CourseCard.jsx";
 import Appbar from "./Appbar.jsx";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import {useRecoilValue} from "recoil";
+import {adminUsername} from "../store/selectors/adminUsername.js";
 
 const AllCourses = () => {
-
+	const admin = useRecoilValue( adminUsername );
 	const [courses, setCourses] = useState([]);
 
 	const init = async () => {
-		const response = await axios.get(`http://localhost:3000/admin/courses`, {
+		const response = await axios.get(`http://localhost:3000/admin/courses/publisher/${admin}`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}
 		});
 
 		let data = response.data.courses;
+		console.log(data);
 		setCourses(data);
 	}
 

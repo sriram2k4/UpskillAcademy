@@ -7,11 +7,28 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
+import {useSetRecoilState} from "recoil";
+import {userState} from "../store/atoms/user.js";
 
 
 const Appbar = () => {
 	const navigate = useNavigate();
-	const username = localStorage.getItem("username");
+	const setUser = useSetRecoilState(userState);
+	let username = localStorage.getItem("username");
+	if(!username){
+			localStorage.setItem("username", "null");
+			username = localStorage.getItem("username");
+	}
+
+	const handleLogout = () => {
+		setUser({
+			isLoading: false,
+			userName: null
+		});
+		localStorage.setItem("token", null);
+		localStorage.setItem("username", null);
+		navigate('/');
+	}
 
 	if(username === "null"){
 		return (
@@ -74,7 +91,7 @@ const Appbar = () => {
 								color="inherit"
 								size={"large"}
 								onClick={() => {
-									navigate('/create_course');
+									navigate('/courses');
 								}}
 							>Courses</Button>
 
@@ -82,14 +99,14 @@ const Appbar = () => {
 								color="inherit"
 								size={"large"}
 								onClick={() => {
-									navigate('/courses');
+									navigate('/courses/purchased_courses');
 								}}
 							>Purchased Course</Button>
 
 							<Button
 								color="inherit"
 								size={"large"}
-								// onClick={ handleLogout }
+								onClick={ handleLogout }
 							>Sign Out </Button>
 						</Toolbar>
 					</AppBar>

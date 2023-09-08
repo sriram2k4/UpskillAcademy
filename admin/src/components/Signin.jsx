@@ -14,8 +14,8 @@ import {adminState} from "../store/atoms/admin.js";
 const Signup = () => {
 	const navigate = useNavigate();
 	const setAdmin = useSetRecoilState(adminState);
-	const [ username , setUsername] = useState("");
-	const [ password , setPassword] = useState("");
+	const [ username , setUsername ] = useState("");
+	const [ password , setPassword ] = useState("");
 
 	const handleSignInClick = async () => {
 		const headers = {
