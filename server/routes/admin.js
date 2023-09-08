@@ -86,6 +86,14 @@ router.get('/courses/:courseId', authenticateJwt, async (req, res) => {
 	res.json(course);
 })
 
+
+// Get course by publisherUsername
+router.get('/courses/publisher/:publisherUsername', authenticateJwt, async (req, res) => {
+	const publishedBy = req.params.publisherUsername;
+	const course = await Course.find({ publishedBy });
+	res.json(course);
+})
+
 // // Delete course by ID
 router.delete('/courses/:courseId', authenticateJwt, async (req, res) => {
 	const id = req.params.courseId;

@@ -105,7 +105,7 @@ const Appbar = () => {
 								onClick={() => {
 									navigate('/courses');
 								}}
-							>Courses</Button>
+							>My Courses</Button>
 
 							<Button
 								color="inherit"

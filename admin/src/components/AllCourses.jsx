@@ -41,7 +41,7 @@ const AllCourses = () => {
 							xs: 15
 						}
 					}}
-				>Your Courses</Typography>
+				>My Courses</Typography>
 
 			<div
 				style={{

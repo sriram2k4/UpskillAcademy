@@ -86,15 +86,15 @@ const CourseCard = (props) => {
 				>Delete</Button>
 			</CardActions>
 
-			<Typography
-				ariant="body2"
-				color="text.secondary"
-				sx={{
-					textAlign : "center"
-				}}
-			>
-				Publisher : {props.course.publishedBy}
-			</Typography>
+			{/*<Typography*/}
+			{/*	ariant="body2"*/}
+			{/*	color="text.secondary"*/}
+			{/*	sx={{*/}
+			{/*		textAlign : "center"*/}
+			{/*	}}*/}
+			{/*>*/}
+			{/*	Publisher : {props.course.publishedBy}*/}
+			{/*</Typography>*/}
 
 		</Card>
 	);
