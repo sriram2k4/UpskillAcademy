@@ -12,7 +12,7 @@ const AllCourses = () => {
 	const [courses, setCourses] = useState([]);
 
 	const init = async () => {
-		const response = await axios.get(`http://localhost:3000/admin/courses/publisher/${admin}`, {
+		const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/admin/courses/publisher/${admin}`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}

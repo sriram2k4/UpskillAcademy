@@ -34,7 +34,7 @@ const CourseForm = () => {
 		console.log(published);
 		console.log(publishedBy);
 
-		const response = await axios.post(`http://localhost:3000/admin/courses`, {
+		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/courses`, {
 			title : title,
 			description : description,
 			imageLink : imageUrl,

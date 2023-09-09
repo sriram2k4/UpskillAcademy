@@ -25,7 +25,7 @@ const UpdateCourse = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	const init = async () => {
-		const response = await axios.get(`http://localhost:3000/admin/courses/${courseId}`, {
+		const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/admin/courses/${courseId}`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token"),
 			}
@@ -47,7 +47,7 @@ const UpdateCourse = () => {
 	}
 
 	const handleUpdate = async () => {
-		const response = await axios.put(`http://localhost:3000/admin/courses/${courseId}`, {
+		const response = await axios.put(`${import.meta.env.VITE_BASE_URL}/admin/courses/${courseId}`, {
 			title : title,
 			description : description,
 			imageLink : imageUrl,

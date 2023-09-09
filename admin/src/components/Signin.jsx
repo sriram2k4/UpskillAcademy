@@ -23,7 +23,7 @@ const Signup = () => {
 			'username' : username,
 			'password' : password
 		};
-		const response = await axios.post(`http://localhost:3000/admin/login`, {}, {
+		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/login`, {}, {
 			headers : headers
 		});
 		setAdmin({ isLoading: false, adminUsername: username });

@@ -20,7 +20,7 @@ const Signup = (key, value) => {
 	const [ password , setPassword] = useState("");
 
 	const handleSignupClick =  async () => {
-		const response = await axios.post(`http://localhost:3000/admin/signup`, {
+		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/signup`, {
 			username: username,
 			password: password
 		});

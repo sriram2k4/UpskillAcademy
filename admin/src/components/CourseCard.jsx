@@ -14,7 +14,7 @@ const CourseCard = (props) => {
 	const navigate = useNavigate();
 
 	const handleDelete = async () => {
-		const response = await axios.delete(`http://localhost:3000/admin/courses/${props.course._id}`, {
+		const response = await axios.delete(`${import.meta.env.VITE_BASE_URL}/admin/courses/${props.course._id}`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token"),
 			}
