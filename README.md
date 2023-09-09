@@ -1,4 +1,6 @@
-<h1 style="text-align: center;">UPSKILL ACADEMY - DOCUMENTATION</h1>
+<div align="center">
+  <h1>UPSKILL ACADEMY - DOCUMENTATION</h1>
+</div>
 
 Upskill Academy is responsive full stack courses selling web app built majorly using MERN stack ( ReactJS, NodeJS, ExpressJS, MongoDB ).
 
