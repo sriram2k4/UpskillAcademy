@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "197ef068-f65e-4bae-8af8-3cf8c9579f9f",
+		"name": "CourseAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18984528"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"sriram\",\n    \"password\" : \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/admin/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "sriram",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/admin/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0NzQyNX0.QeQaQ8PmMoKmYcDMHB2ObLFpFYsXiE61flSBh3Mxzbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Sriram's Web 3 Course\",\n    \"description\": \"Bussiness Development\",\n    \"price\": 200,\n    \"imageLink\": \"https://linktoimage.com\",\n    \"published\": true,\n    \"publishedBy\" : \"sriram2k4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/admin/courses/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0NzQyNX0.QeQaQ8PmMoKmYcDMHB2ObLFpFYsXiE61flSBh3Mxzbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/admin/courses/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"courses",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0NzQyNX0.QeQaQ8PmMoKmYcDMHB2ObLFpFYsXiE61flSBh3Mxzbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Surya's Web 3 Course\",\n    \"description\": \"Bussiness Development\",\n    \"price\": 200,\n    \"imageLink\": \"https://linktoimage.com\",\n    \"published\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/admin/courses/64fc2a0d80fec9cf3f704c66",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"courses",
+								"64fc2a0d80fec9cf3f704c66"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get course by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0NzQyNX0.QeQaQ8PmMoKmYcDMHB2ObLFpFYsXiE61flSBh3Mxzbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/admin/courses/64fc2a0d80fec9cf3f704c66",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"courses",
+								"64fc2a0d80fec9cf3f704c66"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0NzQyNX0.QeQaQ8PmMoKmYcDMHB2ObLFpFYsXiE61flSBh3Mxzbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/admin/courses/64fc2a0d80fec9cf3f704c66",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"courses",
+								"64fc2a0d80fec9cf3f704c66"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Courses By publisherUsername",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0NzQyNX0.QeQaQ8PmMoKmYcDMHB2ObLFpFYsXiE61flSBh3Mxzbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/admin/courses/publisher/sriram2k4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"courses",
+								"publisher",
+								"sriram2k4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\" : \"sriram\",\n    \"password\" : \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/user/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "sriram",
+								"type": "text"
+							},
+							{
+								"key": "password",
+								"value": "123",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI2MTc3MX0.nFwPeFC2YIKgQtrM3daYMsJm8BV5ZCIPsL0_HGaYIdw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/courses",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase Course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI2MTc3MX0.nFwPeFC2YIKgQtrM3daYMsJm8BV5ZCIPsL0_HGaYIdw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/courses/64fc62241c236079a11c23a7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"courses",
+								"64fc62241c236079a11c23a7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get purchased course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0ODM0NH0.-eqpwnrzEe_aEaieskCw221R0Gr1kLmdGp72R8Dtk14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/purchasedCourses",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"purchasedCourses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNyaXJhbSIsImlhdCI6MTY5NDI0ODM0NH0.-eqpwnrzEe_aEaieskCw221R0Gr1kLmdGp72R8Dtk14",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/user/courses/64fc62241c236079a11c23a7",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"courses",
+								"64fc62241c236079a11c23a7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
