@@ -37,11 +37,11 @@ const UpdateCourse = () => {
 		setAmount(response.data.price);
 		setPublished(response.data.published);
 
-		console.log(title);
-		console.log(description);
-		console.log(imageUrl);
-		console.log(amount);
-		console.log(published);
+		// console.log(title);
+		// console.log(description);
+		// console.log(imageUrl);
+		// console.log(amount);
+		// console.log(published);
 
 		setIsLoading(false);
 	}

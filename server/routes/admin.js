@@ -32,7 +32,7 @@ router.post('/signup', async (req, res) => {
 	const { username, password } = req.body;
 	const admin = await Admin.findOne({ username });
 
-	console.log(admin);
+	// console.log(admin);
 
 	if(admin){
 		res.status(403).json({message : "Admin already exists"});
@@ -72,7 +72,7 @@ router.put('/courses/:courseId', authenticateJwt, async (req, res) => {
 	}else{
 		res.status(404).json({ message : "Course not found" });
 	}
-	console.log("course");
+	// console.log("course");
 })
 
 // Get all courses
@@ -105,7 +105,7 @@ router.delete('/courses/:courseId', authenticateJwt, async (req, res) => {
 	}else{
 		res.status(404).json({ message : "Course not found" });
 	}
-	console.log("course");
+	// console.log("course");
 })
 
 module.exports = router;

@@ -19,7 +19,7 @@ const PurchasedCourse = () => {
 		});
 
 		let data = response.data.purchasedCourses;
-		console.log(data);
+		// console.log(data);
 		setCourses(data);
 	}
 

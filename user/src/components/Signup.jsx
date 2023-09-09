@@ -22,7 +22,7 @@ const Signup = () => {
 			password: password
 		});
 		let data = response.data;
-		console.log(data);
+		// console.log(data);
 		setUser({ isLoading: false, userName: username });
 		localStorage.setItem("token", data.token);
 		localStorage.setItem("username", username);

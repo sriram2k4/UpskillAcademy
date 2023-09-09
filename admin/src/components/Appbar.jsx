@@ -16,7 +16,7 @@ import { adminState } from '../store/atoms/admin.js';
 
 const Appbar = () => {
 	const admin = useRecoilValue( adminUsername );
-	console.log(admin);
+	// console.log(admin);
 	const navigate = useNavigate();
 	const setAdmin = useSetRecoilState(adminState);
 	const username = localStorage.getItem("username");

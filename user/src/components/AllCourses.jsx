@@ -17,7 +17,7 @@ const AllCourses = () => {
 			}
 		});
 		let data = response.data.courses;
-		console.log(data);
+		// console.log(data);
 		setCourses(data);
 		setIsLoading(false);
 	}

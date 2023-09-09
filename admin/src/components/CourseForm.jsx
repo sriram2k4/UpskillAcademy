@@ -27,12 +27,12 @@ const CourseForm = () => {
 
 
 	const handleCreateCourse = async () => {
-		console.log(title);
-		console.log(description);
-		console.log(imageUrl);
-		console.log(amount);
-		console.log(published);
-		console.log(publishedBy);
+		// console.log(title);
+		// console.log(description);
+		// console.log(imageUrl);
+		// console.log(amount);
+		// console.log(published);
+		// console.log(publishedBy);
 
 		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/courses`, {
 			title : title,
@@ -49,7 +49,7 @@ const CourseForm = () => {
 
 		let data = response.data;
 
-		console.log(data);
+		// console.log(data);
 		alert("Course Added");
 		navigate("/courses");
 	}

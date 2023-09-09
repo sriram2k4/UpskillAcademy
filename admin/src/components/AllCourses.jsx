@@ -19,7 +19,7 @@ const AllCourses = () => {
 		});
 
 		let data = response.data.courses;
-		console.log(data);
+		// console.log(data);
 		setCourses(data);
 	}
 
@@ -69,6 +69,7 @@ const AllCourses = () => {
 						            display : "flex",
 						            justifyContent : "center"
 					            }}
+					            key={course._id}
 					      >
 								<CourseCard course={course}/>
 					      </Grid>
