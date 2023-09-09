@@ -99,7 +99,11 @@ Install NodeJS and NPM before proceeding futher.
    ```sh
    npm install
    ```
-3. Run the Admin Dashboard.
+3. Edit the .env file inside Admin repo and Add VITE_BASE_URL ( Server's Port ).
+   ```sh
+   VITE_BASE_URL = "http://localhost:3000"
+   ```
+4. Run the Admin Dashboard.
    ```sh
    npm run dev
    ```
@@ -114,7 +118,11 @@ Install NodeJS and NPM before proceeding futher.
    ```sh
    npm install
    ```
-3. Run the User Dashboard.
+3. Edit the .env file inside User repo and Add VITE_BASE_URL ( Server's Port ).
+   ```sh
+   VITE_BASE_URL = "http://localhost:3000"
+   ```
+4. Run the User Dashboard.
    ```sh
    npm run dev
    ```
