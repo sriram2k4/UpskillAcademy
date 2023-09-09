@@ -12,7 +12,7 @@ const PurchasedCourse = () => {
 	const [courses, setCourses] = useState([]);
 
 	const init = async () => {
-		const response = await axios.get(`http://localhost:3000/user/purchasedCourses`, {
+		const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/user/purchasedCourses`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}

@@ -11,7 +11,7 @@ const AllCourses = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	const init = async () => {
-		const response = await axios.get(`http://localhost:3000/user/courses/`, {
+		const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/user/courses/`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}

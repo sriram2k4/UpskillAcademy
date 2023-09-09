@@ -19,7 +19,7 @@ const CoursePage = () => {
 	const [isLoading, setIsLoading] = useState(true);
 
 	const init = () => {
-		axios.get(`http://localhost:3000/user/courses/${courseId}`, {
+		axios.get(`${import.meta.env.VITE_BASE_URL}/user/courses/${courseId}`, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token"),
 			}
@@ -29,7 +29,7 @@ const CoursePage = () => {
 		})
 		.catch((err) => console.log(err));
 
-		axios.get(`http://localhost:3000/user/purchasedCourses`,{
+		axios.get(`${import.meta.env.VITE_BASE_URL}/user/purchasedCourses`,{
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}
@@ -49,7 +49,7 @@ const CoursePage = () => {
 	}, [courseId, purchasedCourses]);
 
 	const handlePurchase = async () => {
-		const response = await axios.post(`http://localhost:3000/user/courses/${ courseId }`, {}, {
+		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/courses/${ courseId }`, {}, {
 			headers : {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}
