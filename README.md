@@ -60,7 +60,7 @@ Install NodeJS and NPM before proceeding futher.
 
 - Clone your repository.
    ```sh
-   git clone <your-repository-url>
+   git clone https://github.com/sriram2k4/UpskillAcademy.git
    ```
 - Change directory to cloned repo.
     ```sh
