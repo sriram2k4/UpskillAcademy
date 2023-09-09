@@ -11,7 +11,7 @@ import {userState} from "../store/atoms/user.js";
 import axios from "axios";
 
 
-const Signup = () => {
+const Signin = () => {
 	const navigate = useNavigate();
 	const setUser = useSetRecoilState(userState);
 	const [ username , setUsername] = useState("");
@@ -23,7 +23,7 @@ const Signup = () => {
 			'username' : username,
 			'password' : password
 		};
-		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/admin/login`, {}, {
+		const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/user/login`, {}, {
 			headers : headers
 		});
 		setUser({ isLoading: false, userName: username });
@@ -136,4 +136,4 @@ const Signup = () => {
 	);
 };
 
-export default Signup;
+export default Signin;
