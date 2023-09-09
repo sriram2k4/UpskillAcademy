@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const SECRET = "Secret";
+const SECRET = process.env.SECRET;
 const { User, Admin, Course } = require('../db');
 const {authenticateJwt} = require("../middleware/auth");
 const router = express.Router();

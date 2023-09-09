@@ -19,6 +19,7 @@ function App() {
         <Route path={"/courses"} element={ <AllCourses /> } />
         <Route path={"/create_course"} element={ <CreateCourse /> } />
         <Route path={"/update_course/:courseId"} element={ <UpdateCourse /> } />
+
       </Routes>
     </Router>
   )

@@ -54,8 +54,8 @@ const CoursePage = () => {
 				"Authorization" : "Bearer " + localStorage.getItem("token")
 			}
 		});
+		alert("Course Purchased!");
 		navigate('/courses')
-		console.log(response.data);
 	}
 
 	return (
