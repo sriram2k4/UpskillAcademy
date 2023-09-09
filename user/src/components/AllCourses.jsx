@@ -81,6 +81,7 @@ const AllCourses = () => {
 								      display : "flex",
 								      justifyContent : "center"
 							      }}
+							      key={course._id}
 							>
 								<CourseCard course={course}/>
 							</Grid>
