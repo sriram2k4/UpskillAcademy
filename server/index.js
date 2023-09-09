@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -12,7 +13,7 @@ app.use(cors());
 app.use("/admin", adminRouter);
 app.use("/user", userRouter);
 
-mongoose.connect('mongodb://localhost:27017/backend');
+mongoose.connect(process.env.MONGODB_URI + "courseAPI");
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`)
