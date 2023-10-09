@@ -1,22 +1,20 @@
-<div align="center">
-  <h1>UPSKILL ACADEMY - DOCUMENTATION</h1>
-</div>
+<h1 align="center">UPSKILL ACADEMY - DOCUMENTATION</h1>
 
 Upskill Academy is responsive full stack courses selling web app built majorly using MERN stack ( ReactJS, NodeJS, ExpressJS, MongoDB ).
 
 # Table of Contents
+- [Admin Dashboard](#admin-dashboard)
+- [User Dashboard](#user-dashboard)
+- [Tech Stack Used](#tech-stack-used)
+- [Hosting WebApp Locally - YouTube Video](#hosting-webapp-locally-youtube-video)
+- [Hosting WebApp Locally](#hosting-webapp-locally)
 
-1. Admin Dashboard
-2. User Dashboard
-3. Tech Stack Used
-4. Hosting WebApp Locally - Youtube Video
-5. Hosting WebApp Locally
 
 
 ## Admin Dashboard
 
 1. This dashboard is only accessible to admins.
-2. Admins can SIGNUP and LOGIN to get authenticated and futher authentication happens using JWT.
+2. Admins can SIGNUP and LOGIN to get authenticated and further authentication happens using JWT.
 3. Admins can execute the CRUD operations includes
     1. Admins can CREATE courses.
     2. Admins can READ courses.
@@ -32,7 +30,7 @@ Upskill Academy is responsive full stack courses selling web app built majorly u
 
 ## Tech Stack Used
 
-Javascipt Frameworks
+Javascript Frameworks
 
 - React
 - NodeJS
@@ -49,18 +47,18 @@ Mongoose -  MongoDB ODM (Object Database Modelling)
 
 JWT - Javascript Web Tokens
 
-## Hosting the UpskillAcademy Web App locally
+## Hosting WebApp Locally - YouTube Video
 
-https://www.youtube.com/watch?v=WInXKw-CY5I
+[Watch the video here](https://www.youtube.com/watch?v=WInXKw-CY5I)
 
 ## Hosting WebApp Locally
 
-Install NodeJS and NPM before proceeding futher.
+Install NodeJS and NPM before proceeding further.
 
 
 - Clone your repository.
-   ```sh
-   git clone https://github.com/sriram2k4/UpskillAcademy.git
+  ```sh
+  git clone https://github.com/sriram2k4/UpskillAcademy.git
    ```
 - Change directory to cloned repo.
     ```sh
